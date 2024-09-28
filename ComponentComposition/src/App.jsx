@@ -1,33 +1,23 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 import './App.css'
+import Modal from './Components/modal';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const[modalState, setModalState] = useState();
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <button onClick={() => setModalState("success")}>Success</button>
+      <button onClick={() => setModalState("error")}>Error</button>
+      <button onClick={() => setModalState("danger")}>Dnager</button>
+
+      {
+        modalState == "success" ? ( <Modal> <button style={{backgroundColor: "green"}}>Success</button> <p>Successfully register</p>  </Modal>) :
+        modalState == "error" ? (<Modal> <button style={{backgroundColor: "yellow"}}>Error</button> <p>Error fond</p> </Modal>) :
+        modalState == "danger" ? (<Modal> <button style={{backgroundColor: "red"}}>danger</button> <p>alarming....</p> </Modal>) : null
+      }
     </>
   )
 }
