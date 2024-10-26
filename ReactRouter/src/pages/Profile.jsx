@@ -1,9 +1,13 @@
 import React from "react";
-
+import Navbar from "../Components/Navbar";
+import { useParams } from "react-router-dom";
 function Profile() {
+    const { id } = useParams();
     return(
         <div>
-            <h1>Profile</h1>
+            {/* <Navbar> */}
+                <h1 className="text-center">Profile {id}</h1>
+            {/* </Navbar> */}
         </div>
     )
 }
