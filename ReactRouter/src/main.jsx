@@ -29,6 +29,8 @@ import Github, { githubInfo } from './Components/Github.jsx'
 //     ]
 //   }
 // ])
+//     <Route path='about' element={ <About />}> <Route path='signup'/> </Route>
+    
 
 const router = createBrowserRouter(
   createRoutesFromElements(
