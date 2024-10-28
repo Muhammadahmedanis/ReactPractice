@@ -1,26 +1,26 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react';
 
-function RefPrac() {
-    const inp1 = useRef()
-    const[num, setNum] = useState(0)
-    
-    const handle = () => {
-        console.log("OK");
-    }
-    const getNum = () => {
-        console.log('ok1');
-        console.log(inp1.current);
-    }
+function RefParc() {
+    const renderCountRef = useRef(0);
+    const [stateCount, setStateCount] = useState(0); 
 
+    const incrementRef = () => {
+        renderCountRef.current = renderCountRef.current +  1;
+        console.log('Ref Count:', renderCountRef.current); 
+    };
 
-  return (
-    <>
-    <h1>{num}</h1>
-    <input ref={inp1} type="number" value={num} onChange={(e) => setNum(e.target.value)} />
-    <button onClick={getNum}>Rupees</button>
-    <button onClick={handle}>Increment</button>
-    </>
-  )
+    const incrementState = () => {
+        setStateCount(stateCount + 1);
+    };
+
+    return (
+        <div>
+            <h1>State Count: {stateCount}</h1>
+            <h1>Ref Count (no re-render): {renderCountRef.current}</h1>
+            <button onClick={incrementRef}>Increment Ref</button>
+            <button onClick={incrementState}>Increment State</button>
+        </div>
+    );
 }
 
-export default RefPrac
+export default RefParc;
