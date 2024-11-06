@@ -1,5 +1,6 @@
 import React from 'react'
-import { Navigate, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import ThemeButton from './ThemeButton'
 
 function Navbar() {
     const NavItem = [
@@ -23,17 +24,20 @@ function Navbar() {
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
         <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg lg:bg-slate-500 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
         {NavItem.map(({ path, link }) => (
-        <li key={link}>
-          <NavLink 
-            to={path} 
-            className={({ isActive }) =>
-              `block py-2 px-3 ${isActive ? 'text-orange-600' : 'text-black'} bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white`
+          <li key={link}>
+            <NavLink 
+              to={path} 
+              className={({ isActive }) =>
+                `block py-2 px-3 ${isActive ? 'text-orange-600' : 'text-black'} bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white`
             }
-          >
-            {link}
-          </NavLink>
-        </li>
+            >
+              {link}
+            </NavLink>
+          </li>
         ))}
+          <li>
+            <ThemeButton />
+          </li>
         </ul>
         </div>
     </div>
